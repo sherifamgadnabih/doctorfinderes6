@@ -54,16 +54,13 @@
 import React from 'react'
 import {Component} from 'react'
 import {createStore} from 'redux'
-import {render} from 'react-dom'
-// import CreateDoctor from '../lib/Components/CreateDoctor.js'
+import CreateDoctor from '../Components/CreateDoctor.js'
 import DoctorList from '../Components/DoctorList.js'
-// import SpecialityList from '../lib/Components/SpecialityList.js'
 import {Router} from 'react-router'
 import {Route} from 'react-router'
 import {hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import reducer from '../stores/index.js'
-import {Spinner} from 'react-spinkit'
 
 let store = createStore(reducer)
 class MainComponent extends Component {
@@ -75,6 +72,7 @@ class MainComponent extends Component {
           <Provider store={store}>
             <Router>
               <Route name='default' history={hashHistory} path='/' component={DoctorList}/>
+              <Route name='CreateDoctor' history={hashHistory} path='/Create' component={CreateDoctor}/>
             </Router>
 
           </Provider>
